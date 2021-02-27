@@ -77,7 +77,4 @@ public class Movimiento {
     public String toString() {
         return fecha + "," + "," + tipo + "," + cantidad + "," + saldo;
     }
-    
-    
-    
 }
