@@ -9,7 +9,7 @@ import java.util.Comparator;
 
 /**
  *
- * @author daw1
+ * @author Abel Dominguez
  */
 public class ComparadorSueldo implements Comparator<Empleado>{
 
