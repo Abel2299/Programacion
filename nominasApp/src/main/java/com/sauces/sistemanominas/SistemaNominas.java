@@ -80,7 +80,7 @@ public class SistemaNominas {
      */    
      public List<Empleado> listarEmpleadosPorSueldo(){
         
-        Collections.sort(empleados);
+        Collections.sort(empleados, new ComparadorSueldo());
        
         return empleados;
     }
