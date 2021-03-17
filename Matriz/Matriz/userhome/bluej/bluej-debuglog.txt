@@ -1,0 +1,40 @@
+BlueJ run started: Wed Mar 17 08:33:56 CET 2021
+BlueJ version 4.2.2
+Java version 11.0.2
+JavaFX version 11.0.2+1
+Virtual machine: OpenJDK 64-Bit Server VM 11.0.2+9 (Oracle Corporation)
+Running on: Windows 10 10.0 (amd64)
+Java Home: D:\BlueJ\bluej\jdk
+----
+Detected language "spanish" based on iso639-2 code "spa"
+Internal error: Unable to load frame labels file: D:\BlueJ\bluej\lib\spanish\frame-labels
+Exception in thread "JavaFX Application Thread" java.lang.NullPointerException
+	at java.desktop/java.awt.EventQueue$4$1.run(EventQueue.java:726)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:428)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:427)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:96)
+	at com.sun.glass.ui.win.WinApplication._enterNestedEventLoopImpl(Native Method)
+	at com.sun.glass.ui.win.WinApplication._enterNestedEventLoop(WinApplication.java:201)
+	at com.sun.glass.ui.Application.enterNestedEventLoop(Application.java:509)
+	at com.sun.glass.ui.EventLoop.enter(EventLoop.java:107)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.enterNestedEventLoop(QuantumToolkit.java:591)
+	at javafx.stage.Stage.showAndWait(Stage.java:465)
+	at javafx.scene.control.HeavyweightDialog.showAndWait(HeavyweightDialog.java:162)
+	at javafx.scene.control.Dialog.showAndWait(Dialog.java:345)
+	at bluej.collect.DataCollector.changeOptInOut(DataCollector.java:178)
+	at bluej.collect.DataCollector.startSession(DataCollector.java:133)
+	at bluej.collect.DataCollector.bluejOpened(DataCollector.java:269)
+	at bluej.Main.lambda$new$1(Main.java:154)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:428)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:427)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:96)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:174)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Opening project: D:\Programacion\Matriz\Matriz
+1615966443143: Listening for JDWP connection on address: javadebug
+Connected to debug VM via dt_shmem transport...
+java.io.FileNotFoundException while reading import cache: userhome\bluej\import-cache.xml (El sistema no puede encontrar el archivo especificado)
+Communication with debug VM fully established.
