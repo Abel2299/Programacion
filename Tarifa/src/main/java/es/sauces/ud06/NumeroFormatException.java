@@ -7,10 +7,11 @@ package es.sauces.ud06;
 
 /**
  *
- * @author daw1
+ * @author Alex
  */
-public enum TipoConsumo{
-    LLAMADA (),
-    SMS (),
-    DATOS (); 
+public class NumeroFormatException extends Exception {
+
+    public NumeroFormatException(String numero_incorrecto) {
+    }
+    
 }

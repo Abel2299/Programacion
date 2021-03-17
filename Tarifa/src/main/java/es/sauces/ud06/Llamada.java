@@ -32,17 +32,17 @@ public class Llamada extends Consumo{
 
     @Override
     public String toString() {
-        return  numero ;
+        return super.getFechaHora().toLocalDate()+","+super.getFechaHora().toLocalTime()+","+super.getImporte()+","+ numero+","+duracion ;
     }
     
     @Override
     public TipoConsumo getTipoConsumo() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return TipoConsumo.LLAMADA;
     }
 
     @Override
     public int getDuracionVolumen() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return duracion;
     }
     
     

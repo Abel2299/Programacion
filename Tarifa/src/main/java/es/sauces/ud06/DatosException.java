@@ -7,10 +7,11 @@ package es.sauces.ud06;
 
 /**
  *
- * @author daw1
+ * @author Alex
  */
-public enum TipoConsumo{
-    LLAMADA (),
-    SMS (),
-    DATOS (); 
+public class DatosException extends Exception {
+
+    public DatosException(String duracion_incorrecto) {
+    }
+    
 }

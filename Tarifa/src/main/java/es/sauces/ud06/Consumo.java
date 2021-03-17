@@ -39,7 +39,7 @@ public abstract class Consumo implements Serializable{
 
     @Override
     public String toString() {
-        return  fechaHora + ", " + importe;
+        return fechaHora + ", " + importe;
     }
     
     public abstract TipoConsumo getTipoConsumo();

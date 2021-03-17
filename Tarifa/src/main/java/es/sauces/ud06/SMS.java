@@ -26,17 +26,17 @@ public class SMS extends Consumo{
 
     @Override
     public String toString() {
-        return  numero;
+        return super.getFechaHora().toLocalDate()+","+super.getFechaHora().toLocalTime()+","+super.getImporte()+","+ numero;
     }
   
     @Override
     public TipoConsumo getTipoConsumo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return TipoConsumo.SMS;
     }
 
     @Override
     public int getDuracionVolumen() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return 1;
     }
 
  

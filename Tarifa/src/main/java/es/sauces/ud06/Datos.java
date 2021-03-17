@@ -15,8 +15,8 @@ public class Datos extends Consumo{
     
     private int volumen;
 
-    public Datos(LocalDateTime fechaHora, float importe, int volumen) {
-        super(fechaHora, importe);
+    public Datos(LocalDateTime fechaHora, float importe , int volumen) {
+        super(fechaHora, importe=0);
         this.volumen = volumen;
     }
 
@@ -26,17 +26,17 @@ public class Datos extends Consumo{
 
     @Override
     public String toString() {
-        return "Datos{" + "volumen=" + volumen + '}';
+        return super.getFechaHora().toLocalDate()+","+super.getFechaHora().toLocalTime()+","+super.getImporte()+","+volumen;
     }
 
     @Override
     public TipoConsumo getTipoConsumo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return TipoConsumo.DATOS;
     }
 
     @Override
     public int getDuracionVolumen() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return volumen;
     }
 
     
