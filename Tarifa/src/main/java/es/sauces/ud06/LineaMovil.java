@@ -7,7 +7,10 @@ package es.sauces.ud06;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -96,20 +99,61 @@ public class LineaMovil implements Comparable<LineaMovil>{
         }
         
         float importe = 0;
-        Datos datos = new Datos(fechaHora, importe, volumen);
+        /*Datos datos = new Datos(fechaHora, importe, volumen);*/
         
         datosDisponibles=datosDisponibles - volumen;
-        consumos.add(datos);
-        
+       /* consumos.add(datos);        Creamos el new directamente aqui*/
+       
+        consumos.add(new Datos(fechaHora, importe, volumen)); 
         return datosDisponibles;
     }
     
+    public String getConsumo(TipoConsumo tipoConsumo){
+        String tipoconsumo;
+        Iterator<Consumo> iterador=consumos.iterator();
+                
+         while(iterador.hasNext()){
+             
+        }
+         return "";   
+    }
+    
+    public Consumo getConsumoMayorImporte(){        
+        return Collections.max(consumos, new ComparadorImporte());
+        
+    }
+    
+    /*public List<Consumo> listarConsumos(LocalDateTime desde, LocalDateTime hasta){
+        
+    }*/
     
     @Override
-    public int compareTo(LineaMovil o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int hashCode() {
+        int hash = 7;
+        hash = 41 * hash + Objects.hashCode(this.numero);
+        return hash;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj != null) {
+           if(obj instanceof LineaMovil){
+            LineaMovil lm=(LineaMovil)obj;
+            if(this.numero.equals(lm.numero)){
+                return true;
+            }
+        }      
+        return false;
+       
+    }
+    
+    /*@Override
+    public int compareTo(LineaMovil linea) {
         
+        return this.numero.compareTo(linea.numero);
+    }*/
     
 }
