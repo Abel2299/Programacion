@@ -38,3 +38,56 @@ Opening project: D:\Programacion\Matriz\Matriz
 Connected to debug VM via dt_shmem transport...
 java.io.FileNotFoundException while reading import cache: userhome\bluej\import-cache.xml (El sistema no puede encontrar el archivo especificado)
 Communication with debug VM fully established.
+====
+
+====
+BlueJ run started: Mon Mar 22 09:39:15 CET 2021
+BlueJ version 4.2.2
+Java version 11.0.2
+JavaFX version 11.0.2+1
+Virtual machine: OpenJDK 64-Bit Server VM 11.0.2+9 (Oracle Corporation)
+Running on: Windows 10 10.0 (amd64)
+Java Home: D:\BlueJ\bluej\jdk
+----
+Internal error: Unable to load frame labels file: D:\BlueJ\bluej\lib\spanish\frame-labels
+Opening project: D:\Programacion\Matriz\Matriz
+1616402358763: Listening for JDWP connection on address: javadebug
+Connected to debug VM via dt_shmem transport...
+Communication with debug VM fully established.
+====
+
+====
+BlueJ run started: Mon Mar 22 11:06:27 CET 2021
+BlueJ version 4.2.2
+Java version 11.0.2
+JavaFX version 11.0.2+1
+Virtual machine: OpenJDK 64-Bit Server VM 11.0.2+9 (Oracle Corporation)
+Running on: Windows 10 10.0 (amd64)
+Java Home: D:\BlueJ\bluej\jdk
+----
+Internal error: Unable to load frame labels file: D:\BlueJ\bluej\lib\spanish\frame-labels
+Internal error: Update stats failed: java.net.UnknownHostException: stats.bluej.org
+java.net.UnknownHostException: Host desconocido (blackbox.bluej.org)
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:929)
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1515)
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:848)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1505)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1364)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1298)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:242)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:130)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:149)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:121)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:561)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:415)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:820)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:754)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:732)
+	at bluej.collect.DataSubmitter.postData(DataSubmitter.java:183)
+	at bluej.collect.DataSubmitter.processQueue(DataSubmitter.java:135)
+	at bluej.collect.DataSubmitter$1.run(DataSubmitter.java:107)
+Opening project: D:\Programacion\Matriz\Matriz
+1616407589020: Listening for JDWP connection on address: javadebug
+Connected to debug VM via dt_shmem transport...
+Communication with debug VM fully established.
