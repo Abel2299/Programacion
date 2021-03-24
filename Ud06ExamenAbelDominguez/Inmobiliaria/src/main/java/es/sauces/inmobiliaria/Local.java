@@ -12,8 +12,11 @@ package es.sauces.inmobiliaria;
 public class Local extends Inmueble{
     private float escaparate;
 
-    public Local(String referencia, float superficie, int precio, TipoOperacion operacion, float escaparate) {
+    public Local(String referencia, float superficie, int precio, TipoOperacion operacion, float escaparate) throws ReferenciaException {
         super(referencia, superficie, precio, operacion);
+        if(escaparate < 0){
+            throw new IllegalArgumentException("Valor incorrecto");
+        }
         this.escaparate = escaparate;
     }
 
@@ -27,21 +30,14 @@ public class Local extends Inmueble{
         }
         this.escaparate = escaparate;
     }    
-    
+
+    @Override
+    public String toString() {
+        return super.toString()+", "+escaparate;
+    }
+
     @Override
     public float getComision() {
-        float nuevoPrecio;
-        
-        
-        
-        return nuevoPrecio;
+        return getPrecio()*0.01f;
     }
-
-    @Override
-    public boolean referenciaValida(String referencia) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
-
 }

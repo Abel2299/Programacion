@@ -9,7 +9,10 @@ package es.sauces.inmobiliaria;
  *
  * @author daw1
  */
-public enum TipoOperacion {
-    Alquilar,
-    Comprar;  
+public class ReferenciaException extends Exception{
+
+    public ReferenciaException(String message) {
+        super(message);
+    }
+    
 }

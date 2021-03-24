@@ -7,6 +7,8 @@ package es.sauces.inmobiliaria;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -19,8 +21,12 @@ public abstract class Inmueble implements Comparable<Inmueble>, Serializable{
     private int precio;
     private TipoOperacion operacion;
 
-    public Inmueble(String referencia, float superficie, int precio, TipoOperacion operacion) {
-       if(superficie<0 || precio<0){
+    public Inmueble(String referencia, float superficie, int precio, TipoOperacion operacion) throws ReferenciaException {
+        if(!referenciaValida(referencia)){
+            throw new ReferenciaException("Formato incorrecto");
+        }
+        
+        if(superficie<0 || precio<0){
             throw new IllegalArgumentException("Datos incorrectos");
         }
        
@@ -34,8 +40,10 @@ public abstract class Inmueble implements Comparable<Inmueble>, Serializable{
         return referencia;
     }
 
-    public void setReferencia(String referencia) {
-        
+    public void setReferencia(String referencia) throws ReferenciaException {
+        if(!referenciaValida(referencia)){
+            throw new ReferenciaException("Formato incorrecto");
+        }
         this.referencia = referencia;
     }
 
@@ -44,6 +52,9 @@ public abstract class Inmueble implements Comparable<Inmueble>, Serializable{
     }
 
     public void setSuperficie(float superficie) {
+        if(superficie<0){
+            throw new IllegalArgumentException("Datos incorrectos");
+        }
         this.superficie = superficie;
     }
 
@@ -52,6 +63,9 @@ public abstract class Inmueble implements Comparable<Inmueble>, Serializable{
     }
 
     public void setPrecio(int precio) {
+       if(precio<0){
+            throw new IllegalArgumentException("Datos incorrectos");
+        }
         this.precio = precio;
     }
 
@@ -62,7 +76,15 @@ public abstract class Inmueble implements Comparable<Inmueble>, Serializable{
     public void setOperacion(TipoOperacion operacion) {
         this.operacion = operacion;
     }
-
+    
+    private boolean referenciaValida(String referencia){
+        String expresionRegular="[LV][0-9]{3}";
+        Pattern p=Pattern.compile(expresionRegular);
+        Matcher m=p.matcher(referencia);
+        
+        return m.matches();
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -76,7 +98,7 @@ public abstract class Inmueble implements Comparable<Inmueble>, Serializable{
             return true;
         }
         if (obj!= null) {
-           if(obj insantceof Inmueble){
+           if(obj instanceof Inmueble){
             Inmueble in=(Inmueble)obj;
 
             if (this.referencia.equals(in.referencia)){
@@ -95,12 +117,10 @@ public abstract class Inmueble implements Comparable<Inmueble>, Serializable{
    
     
     @Override
-    public int compareTo(Inmueble arg0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int compareTo(Inmueble o) {
+        return this.referencia.compareTo(o.referencia);
     }
 
-    public abstract float getComision();
-    
-    public abstract boolean referenciaValida(String referencia);   
+    public abstract float getComision();  
    
 }

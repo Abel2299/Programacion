@@ -13,8 +13,11 @@ public class Vivienda extends Inmueble{
     
     private int dormitorios;
 
-    public Vivienda( String referencia, float superficie, int precio, TipoOperacion operacion, int dormitorios) {
+    public Vivienda( String referencia, float superficie, int precio, TipoOperacion operacion, int dormitorios) throws ReferenciaException {
         super(referencia, superficie, precio, operacion);
+        if(dormitorios<0){
+            throw new IllegalArgumentException("Datos incorrectos");
+        }
         this.dormitorios = dormitorios;
     }
 
@@ -23,27 +26,28 @@ public class Vivienda extends Inmueble{
     }
 
     public void setDormitorios(int dormitorios) {
+        if(dormitorios<0){
+            throw new IllegalArgumentException("Datos incorrectos");
+        }
         this.dormitorios = dormitorios;
     }
 
     @Override
     public String toString() {
-        return "Vivienda{" + "dormitorios=" + dormitorios + '}';
+        return super.toString()+", "+dormitorios;
     }
-
-    
     
     @Override
     public float getComision() {
-        return
+        float comision;
+        
+        if(dormitorios<=2){
+            comision=getPrecio()*0.02f;
+        }
+        else{
+            comision=getPrecio()*0.03f;
+        }
+        
+        return comision;
     }
-
-    @Override
-    public boolean referenciaValida(String referencia) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
-    
-    
 }

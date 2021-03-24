@@ -6,7 +6,9 @@
 package es.sauces.inmobiliaria;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.ListIterator;
 
 /**
  *
@@ -28,18 +30,67 @@ public class Agencia {
     }
     
     public boolean incluirInmueble(Inmueble inmueble){
-       boolean referencia=false;
+       boolean incluido=false;
 
-        if(referencia!=inmueble.getReferencia()){
-        inmuebles.add(inmueble);
-        return true;
-        }
-        
-        
+        if(!inmuebles.contains(inmueble)){
+            inmuebles.add(inmueble);
+            incluido=true;
+        } 
+        return incluido;
     }
     
     public boolean eliminarInmueble(String referencia){
         
+        for(Inmueble inmueble: inmuebles){
+            if(inmueble.getReferencia().equals(referencia)){
+                inmuebles.remove(inmueble);
+                return true;
+            }
+        }
+        
+        return false;
     }
     
+    public List<Inmueble> getViviendas(){
+        List<Inmueble> listado=new ArrayList<>();
+        ListIterator<Inmueble> iterador=inmuebles.listIterator();
+        Inmueble inmueble;
+        
+        while(iterador.hasNext()){
+            inmueble=iterador.next();
+            if(inmueble instanceof Vivienda){
+                listado.add(inmueble);
+            }
+        }
+        Collections.sort(listado,new ComparadorPrecio());
+        
+        return listado;
+    }
+    
+    public List<Inmueble> getInmuebles (TipoOperacion operacion){
+        List<Inmueble> listado= new ArrayList<>();
+        
+        for(Inmueble inmueble: inmuebles){
+            if(inmueble.getOperacion().equals(operacion)){
+                listado.add(inmueble);
+            }
+        }
+        Collections.sort(listado);
+        
+        return listado;
+    }
+    
+    public Local getLocalComprarMasBarato(){
+        Local local=null;
+        List<Local> listado=new ArrayList<>();
+        
+        for(Inmueble inmueble: inmuebles){
+            if(inmuebles instanceof Local){
+                listado.add((Local)inmueble);
+            }
+        }
+        local=Collections.min(listado, new ComparadorPrecio());
+        
+        return local;
+    }
 }

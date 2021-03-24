@@ -30,5 +30,8 @@ public class ComparadorPrecio implements Comparator<Inmueble>{
          }
     
         return salida;
+        
+        /*Otra solucioin*/
+        /*return inm1.getPrecio()-inm2.getPrecio();*/
     }
 }
