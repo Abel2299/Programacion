@@ -18,6 +18,7 @@ public class AgenciaAlquiler {
     
     private String nombre;
     private List<Vehiculo> flota  = new ArrayList<>();
+    private VehiculoDao vehiculoDao;
 
     public AgenciaAlquiler(String nombre) {
         this.nombre = nombre;        
@@ -99,6 +100,32 @@ public class AgenciaAlquiler {
         return vehiculoMasBarato;
         */
         return Collections.min( flota, new ComparadorPrecio());
+   }
+   
+   public int guardarVehiculos() throws DaoException{
+       
+       if(vehiculoDao != null){
+           return vehiculoDao.insertar(flota);
+       }
+       return 0;
+           
+   }
+   
+   public int cargarVehiculos() throws DaoException{
+       
+       int n=0;
+       
+       if(vehiculoDao != null){
+           List<Vehiculo> listado=vehiculoDao.listar();
+           
+           for(Vehiculo v: listado){
+               if(incluirVehiculo(v)){
+               n++;
+               }
+           }
+       }
+       
+       return n;
    }
            
 }
