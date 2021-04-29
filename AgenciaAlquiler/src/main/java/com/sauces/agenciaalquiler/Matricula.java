@@ -5,13 +5,14 @@
  */
 package com.sauces.agenciaalquiler;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author daw1
  */
-public class Matricula {
+public class Matricula implements Serializable{
     
     private String matricula;
 
@@ -59,6 +60,13 @@ public class Matricula {
     
     public int compareTo(Matricula m){
         return this.matricula.compareTo(m.matricula);
+    }
+    
+    public boolean esValido(String matricula){
+    boolean esValido=false; 
+    String patron="[0-9]{4}[BCDFGHJKLMNPRSTVWXYZ]{3}";  //[A-Z && [^AEIOUQ]]
+    
+    return esValido;
     }
     
 }

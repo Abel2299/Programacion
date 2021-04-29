@@ -146,7 +146,7 @@ public class AppAgenciaAlquiler {
                                            System.out.println(veh);
                                        }  */
                     }
-
+                    System.out.println();
                     break;
                 case 5:
                     System.out.println(aa.getVehiculoMasBarato());
@@ -177,31 +177,89 @@ public class AppAgenciaAlquiler {
                                 vehiculoDao = new VehiculoObj(nombreArchivo);
                                 System.out.println("Guardado");
                                 break;
-                            }/*
+                            
                             case 3:
                                 System.out.println("Introduzca nombre archivo: ");
                                 nombreArchivo = teclado.nextLine();
                                 vehiculoDao = new VehiculoJson(nombreArchivo);
                                 System.out.println("Guardado");
                                 break;
+                         
                             case 4:
                                 System.out.println("Introduzca nombre archivo: ");
                                 nombreArchivo = teclado.nextLine();
                                 vehiculoDao = new VehiculoXml(nombreArchivo);
                                 System.out.println("Guardado");
                                 break;
-                            default: System.out.println("Extension incorrecta");*/
+                            default: System.out.println("Extension incorrecta");
+                    }
                     try {
                         if (vehiculoDao != null) {
                             aa.setFlota(listado);
                             n = aa.guardarVehiculos();
-                            System.out.println("Se han almacenado " + n + " empleados");
+                            System.out.println("Se han almacenado " + n + " vehiculos");
                         }
                     } catch (DaoException ex) {
                         System.out.println(ex.getMessage());
                     }
                     } while (opcionNombreArchivo != 0);
                     
+                    break;
+                case 7:
+                    do {
+                        System.out.println("Cargar empleados");
+                        System.out.println("ELEGIR FORMATO");
+                        System.out.println("1. csv");
+                        System.out.println("2. obj");
+                        System.out.println("3. json");
+                        System.out.println("4. xml");
+                        System.out.println("0.- Salir al menu principal");
+                        opcionNombreArchivo = teclado.nextInt();
+                        teclado.nextLine();
+                        
+                    switch(opcionNombreArchivo){    
+                        case 1:
+                            System.out.println("Introduzca nombre archivo: ");
+                            nombreArchivo = teclado.nextLine();
+                            vehiculoDao = new VehiculoCsv(nombreArchivo);
+                            System.out.println("cargado");
+                            break;
+                    
+
+                        case 2:
+                                System.out.println("Introduzca nombre archivo: ");
+                                nombreArchivo = teclado.nextLine();
+                                vehiculoDao = new VehiculoObj(nombreArchivo);
+                                System.out.println("cargado");
+                                break;
+                            
+                            case 3:
+                                System.out.println("Introduzca nombre archivo: ");
+                                nombreArchivo = teclado.nextLine();
+                                vehiculoDao = new VehiculoJson(nombreArchivo);
+                                System.out.println("cargado");
+                                break;
+                          
+                           case 4:
+                                System.out.println("Introduzca nombre archivo: ");
+                                nombreArchivo = teclado.nextLine();
+                                vehiculoDao = new VehiculoXml(nombreArchivo);
+                                System.out.println("cargado");
+                                break;
+                            default: System.out.println("Extension incorrecta");
+                    
+                        }
+                       
+                        try {
+                        if (vehiculoDao != null) {
+                            aa.setFlota(listado);
+                            n = aa.cargarVehiculos();
+                            System.out.println("Se han cargado " + n + " vehiculos");
+                        }
+                    } catch (DaoException ex) {
+                        System.out.println(ex.getMessage());
+                    }
+                    } while (opcionNombreArchivo != 0);
                     break;
           case 0:
                     System.out.println("Hasta luego");

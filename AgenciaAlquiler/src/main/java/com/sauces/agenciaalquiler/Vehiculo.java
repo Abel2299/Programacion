@@ -5,13 +5,14 @@
  */
 package com.sauces.agenciaalquiler;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author Abel
  */
-public abstract class Vehiculo implements Comparable<Vehiculo> {
+public abstract class Vehiculo implements Comparable<Vehiculo>, Serializable {
     private String matricula;
     private Grupo grupo;
 
