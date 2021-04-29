@@ -123,9 +123,12 @@ public class LineaMovil implements Comparable<LineaMovil>{
         
     }
     
-    /*public List<Consumo> listarConsumos(LocalDateTime desde, LocalDateTime hasta){
+    public List<Consumo> listarConsumos(LocalDateTime desde, LocalDateTime hasta){
+        for (int i=0;i<consumos.size();i++) {
+            System.out.println(consumos.get(i));
+        }
         
-    }*/
+    }
     
     @Override
     public int hashCode() {
@@ -145,15 +148,14 @@ public class LineaMovil implements Comparable<LineaMovil>{
             if(this.numero.equals(lm.numero)){
                 return true;
             }
-        }      
+        }    
+        }
         return false;
-       
     }
     
-    /*@Override
-    public int compareTo(LineaMovil linea) {
-        
-        return this.numero.compareTo(linea.numero);
-    }*/
+    @Override
+    public int compareTo(LineaMovil o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

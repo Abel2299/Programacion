@@ -16,6 +16,7 @@ import java.util.List;
  */
 public class SistemaNominas {
     private List<Empleado> empleados;
+    private EmpleadoDao empleadoDao;
 
     /**
      *
@@ -23,6 +24,15 @@ public class SistemaNominas {
     public SistemaNominas() {
         empleados=new ArrayList<>();
     }
+
+    public EmpleadoDao getEmpleadoDao() {
+        return empleadoDao;
+    }
+
+    public void setEmpleadoDao(EmpleadoDao empleadoDao) {
+        this.empleadoDao = empleadoDao;
+    }
+
     
     /**
      *Permite incluir un Empleado en el sistema de nominas
@@ -98,6 +108,14 @@ public class SistemaNominas {
          }
          
          return acumulador;
+    }
+    
+    public int guardarEmpleados(){
+        System.out.println("sn Guardar empleados");
+        System.out.println(empleados.size());
+        
+        return empleadoDao.insertar(empleados);
+    
     }
     
 }
