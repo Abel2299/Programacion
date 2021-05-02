@@ -13,7 +13,7 @@ public class Furgoneta extends Vehiculo{
 
     float capacidad;
 
-    public Furgoneta(String matricula, Grupo grupo, float capacidad) {
+    public Furgoneta(String matricula, Grupo grupo, float capacidad) throws MatriculaException {
         super(matricula, grupo);
         this.capacidad = capacidad;
     }

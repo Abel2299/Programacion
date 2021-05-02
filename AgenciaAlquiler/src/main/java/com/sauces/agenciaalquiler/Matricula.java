@@ -7,6 +7,8 @@ package com.sauces.agenciaalquiler;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -16,8 +18,12 @@ public class Matricula implements Serializable{
     
     private String matricula;
 
-    public Matricula(String matricula) {
+    public Matricula(String matricula) throws MatriculaException {
+        if(!esValido(matricula)){
+            throw new MatriculaException("Matricula incorrecta");
+        }
         this.matricula = matricula;
+        
     }
 
     public String getMatricula() {
@@ -65,6 +71,13 @@ public class Matricula implements Serializable{
     public boolean esValido(String matricula){
     boolean esValido=false; 
     String patron="[0-9]{4}[BCDFGHJKLMNPRSTVWXYZ]{3}";  //[A-Z && [^AEIOUQ]]
+    
+    Pattern p=Pattern.compile(patron);
+    Matcher m=p.matcher(matricula);
+    
+    if(m.matches()){
+        esValido=true;
+    }
     
     return esValido;
     }

@@ -13,7 +13,7 @@ public class Turismo extends Vehiculo{
     
     private int plazas;
 
-    public Turismo(String matricula, Grupo grupo, int plazas) {
+    public Turismo(String matricula, Grupo grupo, int plazas) throws MatriculaException {
         super(matricula, grupo);
         this.plazas = plazas;
     }

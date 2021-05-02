@@ -32,6 +32,14 @@ public class AgenciaAlquiler {
     public void setFlota(List<Vehiculo> flota) {
         this.flota = flota;
     }
+
+    public VehiculoDao getVehiculoDao() {
+        return vehiculoDao;
+    }
+
+    public void setVehiculoDao(VehiculoDao vehiculoDao) {
+        this.vehiculoDao = vehiculoDao;
+    }
     
 
    public boolean incluirVehiculo(Vehiculo vehiculo){

@@ -13,19 +13,19 @@ import java.util.Objects;
  * @author Abel
  */
 public abstract class Vehiculo implements Comparable<Vehiculo>, Serializable {
-    private String matricula;
+    private Matricula matricula;
     private Grupo grupo;
 
-    public Vehiculo(String matricula, Grupo grupo) {
-        this.matricula = matricula;
+    public Vehiculo(String matricula, Grupo grupo) throws MatriculaException {
+        this.matricula = new Matricula(matricula);
         this.grupo = grupo;
     }
 
-    public String getMatricula() {
+    public Matricula getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(String matricula) {
+    public void setMatricula(Matricula matricula) {
         this.matricula = matricula;
     }
 
