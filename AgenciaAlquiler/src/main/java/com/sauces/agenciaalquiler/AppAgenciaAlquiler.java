@@ -80,7 +80,7 @@ public class AppAgenciaAlquiler {
                                 matricula = teclado.nextLine();
                                 System.out.println("Introduzca un grupo válido: " + Arrays.toString(Grupo.values()));
                                 grupo = teclado.nextLine();
-                                System.out.println("Introduzca capadidad");
+                                System.out.println("Introduzca capacidad");
                                 capacidad = teclado.nextFloat();
                                 teclado.nextLine();
                             {
@@ -180,28 +180,28 @@ public class AppAgenciaAlquiler {
                             case 1:
                                 System.out.println("Introduzca nombre archivo: ");
                                 nombreArchivo = teclado.nextLine();
-                                vehiculoDao = new VehiculoCsv(nombreArchivo);
+                                vehiculoDao = new VehiculoCsv(nombreArchivo+".csv");
                                 System.out.println("Guardado");
                                 break;
 
                             case 2:
                                 System.out.println("Introduzca nombre archivo: ");
                                 nombreArchivo = teclado.nextLine();
-                                vehiculoDao = new VehiculoObj(nombreArchivo);
+                                vehiculoDao = new VehiculoObj(nombreArchivo+".obj");
                                 System.out.println("Guardado");
                                 break;
 
                             case 3:
                                 System.out.println("Introduzca nombre archivo: ");
                                 nombreArchivo = teclado.nextLine();
-                                vehiculoDao = new VehiculoJson(nombreArchivo);
+                                vehiculoDao = new VehiculoJson(nombreArchivo+".json");
                                 System.out.println("Guardado");
                                 break;
 
                             case 4:
                                 System.out.println("Introduzca nombre archivo: ");
                                 nombreArchivo = teclado.nextLine();
-                                vehiculoDao = new VehiculoXml(nombreArchivo);
+                                vehiculoDao = new VehiculoXml(nombreArchivo+".xml");
                                 System.out.println("Guardado");
                                 break;
                             default:
@@ -221,7 +221,7 @@ public class AppAgenciaAlquiler {
                     break;
                 case 7:
                     do {
-                        System.out.println("Cargar empleados");
+                        System.out.println("Cargar vehiculos");
                         System.out.println("ELEGIR FORMATO");
                         System.out.println("1. csv");
                         System.out.println("2. obj");
@@ -235,28 +235,28 @@ public class AppAgenciaAlquiler {
                             case 1:
                                 System.out.println("Introduzca nombre archivo: ");
                                 nombreArchivo = teclado.nextLine();                               
-                                vehiculoDao = new VehiculoCsv(nombreArchivo);
+                                vehiculoDao = new VehiculoCsv(nombreArchivo+".csv");
                                 System.out.println("cargado");
                                 break;
 
                             case 2:
                                 System.out.println("Introduzca nombre archivo: ");
                                 nombreArchivo = teclado.nextLine();
-                                vehiculoDao = new VehiculoObj(nombreArchivo);
+                                vehiculoDao = new VehiculoObj(nombreArchivo+".obj");
                                 System.out.println("cargado");
                                 break;
 
                             case 3:
                                 System.out.println("Introduzca nombre archivo: ");
                                 nombreArchivo = teclado.nextLine();
-                                vehiculoDao = new VehiculoJson(nombreArchivo);
+                                vehiculoDao = new VehiculoJson(nombreArchivo+".json");
                                 System.out.println("cargado");
                                 break;
 
                             case 4:
                                 System.out.println("Introduzca nombre archivo: ");
                                 nombreArchivo = teclado.nextLine();
-                                vehiculoDao = new VehiculoXml(nombreArchivo);
+                                vehiculoDao = new VehiculoXml(nombreArchivo+".xml");
                                 System.out.println("cargado");
                                 break;
                             default:

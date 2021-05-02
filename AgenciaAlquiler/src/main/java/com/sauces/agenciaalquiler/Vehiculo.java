@@ -39,7 +39,7 @@ public abstract class Vehiculo implements Comparable<Vehiculo>, Serializable {
     
     @Override
     public String toString() {
-        return  matricula + ", " + grupo ;
+        return  matricula + "," + grupo ;
     }
 
     @Override
