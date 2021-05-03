@@ -1,0 +1,34 @@
+[
+  {
+    "type": "Turismo",
+    "plazas": 5,
+    "matricula": {
+      "matricula": "5311JJB"
+    },
+    "grupo": "A"
+  },
+  {
+    "type": "Turismo",
+    "plazas": 5,
+    "matricula": {
+      "matricula": "8208BXP"
+    },
+    "grupo": "C"
+  },
+  {
+    "type": "Turismo",
+    "plazas": 5,
+    "matricula": {
+      "matricula": "9648BZR"
+    },
+    "grupo": "C"
+  },
+  {
+    "type": "Furgoneta",
+    "capacidad": 2.0,
+    "matricula": {
+      "matricula": "4242CSD"
+    },
+    "grupo": "B"
+  }
+]

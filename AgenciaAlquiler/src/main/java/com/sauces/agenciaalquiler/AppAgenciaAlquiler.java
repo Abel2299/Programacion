@@ -181,32 +181,31 @@ public class AppAgenciaAlquiler {
                                 System.out.println("Introduzca nombre archivo: ");
                                 nombreArchivo = teclado.nextLine();
                                 vehiculoDao = new VehiculoCsv(nombreArchivo+".csv");
-                                System.out.println("Guardado");
                                 break;
 
                             case 2:
                                 System.out.println("Introduzca nombre archivo: ");
                                 nombreArchivo = teclado.nextLine();
                                 vehiculoDao = new VehiculoObj(nombreArchivo+".obj");
-                                System.out.println("Guardado");
                                 break;
 
                             case 3:
                                 System.out.println("Introduzca nombre archivo: ");
                                 nombreArchivo = teclado.nextLine();
                                 vehiculoDao = new VehiculoJson(nombreArchivo+".json");
-                                System.out.println("Guardado");
                                 break;
 
                             case 4:
                                 System.out.println("Introduzca nombre archivo: ");
                                 nombreArchivo = teclado.nextLine();
                                 vehiculoDao = new VehiculoXml(nombreArchivo+".xml");
-                                System.out.println("Guardado");
                                 break;
+                                
                             default:
                                 System.out.println("Extension incorrecta");
+                                break;
                         }
+                        System.out.println("Guardado");
                         try {
                             if (vehiculoDao != null) {
                                 aa.setVehiculoDao(vehiculoDao);
@@ -236,34 +235,30 @@ public class AppAgenciaAlquiler {
                                 System.out.println("Introduzca nombre archivo: ");
                                 nombreArchivo = teclado.nextLine();                               
                                 vehiculoDao = new VehiculoCsv(nombreArchivo+".csv");
-                                System.out.println("cargado");
                                 break;
 
                             case 2:
                                 System.out.println("Introduzca nombre archivo: ");
                                 nombreArchivo = teclado.nextLine();
                                 vehiculoDao = new VehiculoObj(nombreArchivo+".obj");
-                                System.out.println("cargado");
                                 break;
 
                             case 3:
                                 System.out.println("Introduzca nombre archivo: ");
                                 nombreArchivo = teclado.nextLine();
                                 vehiculoDao = new VehiculoJson(nombreArchivo+".json");
-                                System.out.println("cargado");
                                 break;
 
                             case 4:
                                 System.out.println("Introduzca nombre archivo: ");
                                 nombreArchivo = teclado.nextLine();
                                 vehiculoDao = new VehiculoXml(nombreArchivo+".xml");
-                                System.out.println("cargado");
                                 break;
                             default:
                                 System.out.println("Extension incorrecta");
 
                         }
-
+                        System.out.println("Cargado");
                         try {
                             if (vehiculoDao != null) {
                                 aa.setVehiculoDao(vehiculoDao);
