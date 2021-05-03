@@ -5,15 +5,16 @@
  */
 package com.sauces.sistemanominas;
 
-import java.util.List;
 
 /**
  *
- * @author Abel
+ * @author daw1
  */
-public interface EmpleadoDao {
-    
-    public List<Empleado> listar() throws DaoException;
-    public int insertar(List<Empleado> listado) throws DaoException;
+public class DniException extends Exception {
+
+    public DniException(String dni_incorrecto) {
+        super(dni_incorrecto);
+    }
     
 }
+

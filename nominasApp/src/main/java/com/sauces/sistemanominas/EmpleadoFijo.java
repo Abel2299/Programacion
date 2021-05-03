@@ -11,6 +11,8 @@ package com.sauces.sistemanominas;
  */
 public class EmpleadoFijo extends Empleado{
     
+    private static final long serialVersion= 3L;
+    
     private float salario;
 
     /**
@@ -31,7 +33,7 @@ public class EmpleadoFijo extends Empleado{
         this.salario = salario;
     }
 
-    public EmpleadoFijo(String dni, String nombre, float salario) {
+    public EmpleadoFijo(String dni, String nombre, float salario)throws DniException {
         super(dni, nombre);
         this.salario = salario;
     }

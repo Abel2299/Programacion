@@ -1,0 +1,40 @@
+<list>
+  <com.sauces.sistemanominas.EmpleadoFijo>
+    <dni>
+      <dni>11478523M</dni>
+    </dni>
+    <nombre>Maria</nombre>
+    <salario>1480.0</salario>
+  </com.sauces.sistemanominas.EmpleadoFijo>
+  <com.sauces.sistemanominas.EmpleadoEventual>
+    <dni>
+      <dni>12345678Z</dni>
+    </dni>
+    <nombre> Eventual</nombre>
+    <salarioHora>1250.0</salarioHora>
+    <horas>6</horas>
+  </com.sauces.sistemanominas.EmpleadoEventual>
+  <com.sauces.sistemanominas.EmpleadoFijo>
+    <dni>
+      <dni>71041503T</dni>
+    </dni>
+    <nombre> Fijo</nombre>
+    <salario>1250.0</salario>
+  </com.sauces.sistemanominas.EmpleadoFijo>
+  <com.sauces.sistemanominas.EmpleadoEventual>
+    <dni>
+      <dni>78946532K</dni>
+    </dni>
+    <nombre>Roberto</nombre>
+    <salarioHora>49.0</salarioHora>
+    <horas>5</horas>
+  </com.sauces.sistemanominas.EmpleadoEventual>
+  <com.sauces.sistemanominas.EmpleadoEventual>
+    <dni>
+      <dni>78946742R</dni>
+    </dni>
+    <nombre>Marcos</nombre>
+    <salarioHora>26.0</salarioHora>
+    <horas>4</horas>
+  </com.sauces.sistemanominas.EmpleadoEventual>
+</list>

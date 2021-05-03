@@ -11,10 +11,12 @@ package com.sauces.sistemanominas;
  */
 public class EmpleadoEventual extends Empleado {
     
+    private static final long serialVersion= 4L;
+    
     private float salarioHora;
     private int horas;
 
-    public EmpleadoEventual(String dni, String nombre,float salarioHora, int horas) {
+    public EmpleadoEventual(String dni, String nombre,float salarioHora, int horas) throws DniException {
         super(dni, nombre);
         this.salarioHora = salarioHora;
         this.horas = horas;

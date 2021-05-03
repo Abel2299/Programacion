@@ -12,21 +12,21 @@ import java.util.Objects;
  *
  * @author daw1
  */
-public abstract class Empleado implements Comparable<Empleado>, Serializable{
-    
-    private String dni;
+public abstract class Empleado implements Comparable<Empleado>, Serializable {
+
+    private static final long serialVersion = 2L;
+
+    private Dni dni;
+    private String nombre;
 
     public String getDni() {
-        return dni;
+        return dni.toString();
     }
 
-    public void setDni(String dni) {
+    public void setDni(Dni dni) {
         this.dni = dni;
     }
 
-    private String nombre;
-
-   
     public String getNombre() {
         return nombre;
     }
@@ -35,14 +35,14 @@ public abstract class Empleado implements Comparable<Empleado>, Serializable{
         this.nombre = nombre;
     }
 
-    public Empleado(String dni, String nombre) {
-        this.dni = dni;
+    public Empleado(String dni, String nombre) throws DniException {
+        this.dni = new Dni(dni);
         this.nombre = nombre;
     }
 
     @Override
     public String toString() {
-        return dni+", " + nombre;
+        return dni + ", " + nombre;
     }
 
     @Override
@@ -57,22 +57,23 @@ public abstract class Empleado implements Comparable<Empleado>, Serializable{
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
-            return false;
+        if (obj != null) {
+            if (obj instanceof Empleado) {
+                Empleado e = (Empleado) obj;
+                if (this.dni.equals(e.dni)) {
+                    return true;
+                }
+            }
         }
-        final Empleado other = (Empleado) obj;
-        if (!this.dni.equals(other.dni)) {      //la exclamacion niega
-            return false;
-        }
-        return true;
+
+        return false;
     }
 
     @Override
     public int compareTo(Empleado o) {          //arg0
-       return this.dni.compareTo(o.dni);
+        return this.dni.compareTo(o.dni);
     }
-    
+
     public abstract float ingresos();       //metodo abstracto
-    
 
 }

@@ -15,6 +15,7 @@ import java.util.List;
  * @author daw1
  */
 public class SistemaNominas {
+
     private List<Empleado> empleados;
     private EmpleadoDao empleadoDao;
 
@@ -22,7 +23,7 @@ public class SistemaNominas {
      *
      */
     public SistemaNominas() {
-        empleados=new ArrayList<>();
+        empleados = new ArrayList<>();
     }
 
     public EmpleadoDao getEmpleadoDao() {
@@ -33,23 +34,24 @@ public class SistemaNominas {
         this.empleadoDao = empleadoDao;
     }
 
-    
     /**
-     *Permite incluir un Empleado en el sistema de nominas
+     * Permite incluir un Empleado en el sistema de nominas
+     *
      * @param empleado Empleado que será imcluido
-     * @return true si el empleado es imcuido en el sistema y false en el otro caso
+     * @return true si el empleado es imcuido en el sistema y false en el otro
+     * caso
      */
-    public boolean incluirEmpleado(Empleado empleado){
-        boolean incluido=false;
-        
-        if(!empleados.contains(empleado)){
-        empleados.add(empleado);
-        incluido=true;
+    public boolean incluirEmpleado(Empleado empleado) {
+        boolean incluido = false;
+
+        if (!empleados.contains(empleado)) {
+            empleados.add(empleado);
+            incluido = true;
         }
-        
+
         return incluido;
     }
-    
+
     /**
      *
      * @param dni
@@ -67,55 +69,67 @@ public class SistemaNominas {
         }
         return null;
     }
-    
+
     /**
      *
      * @param empleado
      * @return
      */
-    public boolean eliminarEmpleado(Empleado empleado){        
+    public boolean eliminarEmpleado(Empleado empleado) {
         return empleados.remove(empleado);
     }
-    
-    public List<Empleado> listarEmpleados(){
-        
-         Collections.sort(empleados);
-       
-    return empleados;
-    }
-    
-    /**
-     *
-     * @return
-     */    
-     public List<Empleado> listarEmpleadosPorSueldo(){
-        
-        Collections.sort(empleados, new ComparadorSueldo());
-       
+
+    public List<Empleado> listarEmpleados() {
+
+        Collections.sort(empleados);
+
         return empleados;
     }
-     
+
     /**
      *
      * @return
      */
-    public float getTotalSalarios(){
-         float acumulador=0;
-         Iterator<Empleado> iterador=empleados.iterator();
-         
-         while(iterador.hasNext()){
-             acumulador+=iterador.next().ingresos();
-         }
-         
-         return acumulador;
+    public List<Empleado> listarEmpleadosPorSueldo() {
+
+        Collections.sort(empleados, new ComparadorSueldo());
+
+        return empleados;
     }
-    
-    public int guardarEmpleados(){
-        System.out.println("sn Guardar empleados");
-        System.out.println(empleados.size());
-        
-        return empleadoDao.insertar(empleados);
-    
+
+    /**
+     *
+     * @return
+     */
+    public float getTotalSalarios() {
+        float acumulador = 0;
+        Iterator<Empleado> iterador = empleados.iterator();
+
+        while (iterador.hasNext()) {
+            acumulador += iterador.next().ingresos();
+        }
+
+        return acumulador;
     }
+
+    public int guardarEmpleados() throws DaoException {
+        if (empleadoDao != null) {
+            return empleadoDao.insertar(empleados);
+        }
+        return 0;
+    }
+
     
+    public int cargarEmpleados() throws DaoException {
+        int n = 0;
+        if (empleadoDao != null) {
+            List<Empleado> listado = empleadoDao.listar();
+            for (Empleado e : listado) {
+                if(incluirEmpleado(e)){
+                    n++;
+                }                
+            }
+        }
+        return n;
+    }
 }

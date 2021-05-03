@@ -1,0 +1,45 @@
+[
+  {
+    "type": "EmpleadoFijo",
+    "salario": 1480.0,
+    "dni": {
+      "dni": "11478523M"
+    },
+    "nombre": "Maria"
+  },
+  {
+    "type": "EmpleadoEventual",
+    "salarioHora": 1250.0,
+    "horas": 6,
+    "dni": {
+      "dni": "12345678Z"
+    },
+    "nombre": " Eventual"
+  },
+  {
+    "type": "EmpleadoFijo",
+    "salario": 1250.0,
+    "dni": {
+      "dni": "71041503T"
+    },
+    "nombre": " Fijo"
+  },
+  {
+    "type": "EmpleadoEventual",
+    "salarioHora": 49.0,
+    "horas": 5,
+    "dni": {
+      "dni": "78946532K"
+    },
+    "nombre": "Roberto"
+  },
+  {
+    "type": "EmpleadoEventual",
+    "salarioHora": 26.0,
+    "horas": 4,
+    "dni": {
+      "dni": "78946742R"
+    },
+    "nombre": "Marcos"
+  }
+]

@@ -5,15 +5,14 @@
  */
 package com.sauces.sistemanominas;
 
-import java.util.List;
-
 /**
  *
- * @author Abel
+ * @author daw1
  */
-public interface EmpleadoDao {
-    
-    public List<Empleado> listar() throws DaoException;
-    public int insertar(List<Empleado> listado) throws DaoException;
+public class DaoException extends Exception{
+
+    public DaoException(String message) {
+        super(message);
+    }
     
 }

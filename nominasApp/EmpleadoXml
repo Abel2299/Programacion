@@ -1,0 +1,17 @@
+<list>
+  <com.sauces.sistemanominas.EmpleadoFijo>
+    <dni>
+      <dni>12345678Z</dni>
+    </dni>
+    <nombre> Fijo</nombre>
+    <salario>1200.0</salario>
+  </com.sauces.sistemanominas.EmpleadoFijo>
+  <com.sauces.sistemanominas.EmpleadoEventual>
+    <dni>
+      <dni>71041503T</dni>
+    </dni>
+    <nombre> Evenctual</nombre>
+    <salarioHora>1200.0</salarioHora>
+    <horas>8</horas>
+  </com.sauces.sistemanominas.EmpleadoEventual>
+</list>
