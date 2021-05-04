@@ -28,9 +28,16 @@ public class MiVentana extends javax.swing.JFrame {
     private void initComponents() {
 
         jToolBar1 = new javax.swing.JToolBar();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        PanelCuenta = new javax.swing.JPanel();
+        CodigoTitulo = new javax.swing.JLabel();
+        CodigoTexto = new javax.swing.JTextField();
+        TitulatTitulo = new javax.swing.JLabel();
+        SaldoTitulo = new javax.swing.JLabel();
+        TitualrTexto = new javax.swing.JTextField();
+        SaldoText = new javax.swing.JTextField();
+        PanelListadoCuenta = new javax.swing.JPanel();
+        tablaListadoCuentas = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jMenuArriba = new javax.swing.JMenuBar();
         menuArchivo = new javax.swing.JMenu();
         Abrir = new javax.swing.JMenuItem();
@@ -46,32 +53,101 @@ public class MiVentana extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cuenta"));
+        PanelCuenta.setBorder(javax.swing.BorderFactory.createTitledBorder("Cuenta"));
 
-        jLabel1.setText("CODIGO");
-        jLabel1.setToolTipText("CODIGO");
+        CodigoTitulo.setText("CODIGO");
+        CodigoTitulo.setToolTipText("CODIGO");
 
-        jTextField1.setText("jTextField1");
+        TitulatTitulo.setText("TITULAR");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        SaldoTitulo.setText("SALDO");
+
+        javax.swing.GroupLayout PanelCuentaLayout = new javax.swing.GroupLayout(PanelCuenta);
+        PanelCuenta.setLayout(PanelCuentaLayout);
+        PanelCuentaLayout.setHorizontalGroup(
+            PanelCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelCuentaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(PanelCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CodigoTitulo)
+                    .addComponent(TitulatTitulo)
+                    .addComponent(SaldoTitulo))
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(274, Short.MAX_VALUE))
+                .addGroup(PanelCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CodigoTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TitualrTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SaldoText, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        PanelCuentaLayout.setVerticalGroup(
+            PanelCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelCuentaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addGroup(PanelCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CodigoTitulo)
+                    .addComponent(CodigoTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PanelCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TitulatTitulo)
+                    .addComponent(TitualrTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PanelCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SaldoTitulo)
+                    .addComponent(SaldoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        PanelListadoCuenta.setBorder(javax.swing.BorderFactory.createTitledBorder("Listado de cuentas"));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "CODIGO", "TITULAR", "SALDO"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jTable1AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        tablaListadoCuentas.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setResizable(false);
+            jTable1.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        javax.swing.GroupLayout PanelListadoCuentaLayout = new javax.swing.GroupLayout(PanelListadoCuenta);
+        PanelListadoCuenta.setLayout(PanelListadoCuentaLayout);
+        PanelListadoCuentaLayout.setHorizontalGroup(
+            PanelListadoCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelListadoCuentaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tablaListadoCuentas, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        PanelListadoCuentaLayout.setVerticalGroup(
+            PanelListadoCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelListadoCuentaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tablaListadoCuentas, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(267, Short.MAX_VALUE))
         );
 
         menuArchivo.setText("Archivo");
@@ -106,17 +182,29 @@ public class MiVentana extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PanelCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(PanelListadoCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 231, Short.MAX_VALUE))
+                .addComponent(PanelCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PanelListadoCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
+
+        PanelListadoCuenta.getAccessibleContext().setAccessibleName("Listado de cuentas");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTable1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTable1AncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1AncestorAdded
 
     /**
      * @param args the command line arguments
@@ -157,15 +245,22 @@ public class MiVentana extends javax.swing.JFrame {
     private javax.swing.JMenuItem Abrir;
     private javax.swing.JMenuItem AbrirCuenta;
     private javax.swing.JMenuItem Cancelar;
+    private javax.swing.JTextField CodigoTexto;
+    private javax.swing.JLabel CodigoTitulo;
     private javax.swing.JMenuItem Guardar;
     private javax.swing.JMenuItem Operar;
+    private javax.swing.JPanel PanelCuenta;
+    private javax.swing.JPanel PanelListadoCuenta;
+    private javax.swing.JTextField SaldoText;
+    private javax.swing.JLabel SaldoTitulo;
     private javax.swing.JMenuItem Salir;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField TitualrTexto;
+    private javax.swing.JLabel TitulatTitulo;
     private javax.swing.JMenuBar jMenuArriba;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JMenu menuArchivo;
     private javax.swing.JMenu menuBanco;
+    private javax.swing.JScrollPane tablaListadoCuentas;
     // End of variables declaration//GEN-END:variables
 }
