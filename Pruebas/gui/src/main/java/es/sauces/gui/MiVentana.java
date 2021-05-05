@@ -5,6 +5,10 @@
  */
 package es.sauces.gui;
 
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author daw1
@@ -28,6 +32,7 @@ public class MiVentana extends javax.swing.JFrame {
     private void initComponents() {
 
         jToolBar1 = new javax.swing.JToolBar();
+        SelectorFichero = new javax.swing.JFileChooser();
         PanelCuenta = new javax.swing.JPanel();
         CodigoTitulo = new javax.swing.JLabel();
         CodigoTexto = new javax.swing.JTextField();
@@ -109,14 +114,22 @@ public class MiVentana extends javax.swing.JFrame {
                 "CODIGO", "TITULAR", "SALDO"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, true, false
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Float.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.getTableHeader().setReorderingAllowed(false);
         jTable1.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jTable1AncestorAdded(evt);
@@ -153,6 +166,11 @@ public class MiVentana extends javax.swing.JFrame {
         menuArchivo.setText("Archivo");
 
         Abrir.setText("Abrir...");
+        Abrir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AbrirActionPerformed(evt);
+            }
+        });
         menuArchivo.add(Abrir);
 
         Guardar.setText("Guardar...");
@@ -166,6 +184,11 @@ public class MiVentana extends javax.swing.JFrame {
         menuBanco.setText("Banco");
 
         AbrirCuenta.setText("Abrir cuenta");
+        AbrirCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AbrirCuentaActionPerformed(evt);
+            }
+        });
         menuBanco.add(AbrirCuenta);
 
         Operar.setText("Operar con cuenta");
@@ -197,14 +220,23 @@ public class MiVentana extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        PanelListadoCuenta.getAccessibleContext().setAccessibleName("Listado de cuentas");
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTable1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTable1AncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_jTable1AncestorAdded
+
+    private void AbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbrirActionPerformed
+        if(this.SelectorFichero.showOpenDialog(Abrir) == JFileChooser.APPROVE_OPTION){
+            String nombre = SelectorFichero.getSelectedFile().getName();
+            JOptionPane.showMessageDialog(this, nombre);
+        }
+    }//GEN-LAST:event_AbrirActionPerformed
+
+    private void AbrirCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbrirCuentaActionPerformed
+        //dialogo.setVisible(true);
+    }//GEN-LAST:event_AbrirCuentaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,6 +286,7 @@ public class MiVentana extends javax.swing.JFrame {
     private javax.swing.JTextField SaldoText;
     private javax.swing.JLabel SaldoTitulo;
     private javax.swing.JMenuItem Salir;
+    private javax.swing.JFileChooser SelectorFichero;
     private javax.swing.JTextField TitualrTexto;
     private javax.swing.JLabel TitulatTitulo;
     private javax.swing.JMenuBar jMenuArriba;
