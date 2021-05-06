@@ -6,6 +6,7 @@
 package com.sauces.banco.vista;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -13,9 +14,10 @@ import javax.swing.JOptionPane;
  */
 public class DialogoCuenta extends javax.swing.JDialog {
 
-    /**
-     * Creates new form DialogoCuenta
-     */
+    public int ACEPTAR;
+    public int CANCELAR;
+    private int opcion;
+    
     public DialogoCuenta(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -50,14 +52,16 @@ public class DialogoCuenta extends javax.swing.JDialog {
         Aceptar.setText("Aceptar");
         Aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AceptarActionPerformed(evt);
+                pulsadoBoton(evt);
+                pulsadoBotonAceptar(evt);
             }
         });
 
         Cancelar.setText("Cancelar");
         Cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelarActionPerformed(evt);
+                pulsadoBoton(evt);
+                pulsadoBotonCancelar(evt);
             }
         });
 
@@ -111,14 +115,38 @@ public class DialogoCuenta extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
-        JOptionPane.showMessageDialog(this, "Pulsado el boton");
-    }//GEN-LAST:event_AceptarActionPerformed
+    private void pulsadoBoton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pulsadoBoton
+        JOptionPane.showMessageDialog(this, "Pulsado el boton"+evt.getActionCommand());
+    }//GEN-LAST:event_pulsadoBoton
 
-    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-        JOptionPane.showMessageDialog(this, "Pulsado el boton");
-    }//GEN-LAST:event_CancelarActionPerformed
+    private void pulsadoBotonAceptar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pulsadoBotonAceptar
+        opcion=ACEPTAR;
+        setVisible(false);
+    }//GEN-LAST:event_pulsadoBotonAceptar
 
+    private void pulsadoBotonCancelar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pulsadoBotonCancelar
+        opcion=ACEPTAR;
+        setVisible(false);
+    }//GEN-LAST:event_pulsadoBotonCancelar
+
+    public int mostrar(){
+        opcion=CANCELAR;
+        setVisible(false);
+        return opcion;
+    }
+
+    public String getCodigo() {
+        return this.TextoTitular.getText();
+    }
+
+    public float getSaldo() {
+        return Float.parseFloat(this.TextoSaldo.getText());
+    }
+
+    public String getTitular() {
+        return this.TextoTitular.getText();
+    }
+    
     /**
      * @param args the command line arguments
      */
