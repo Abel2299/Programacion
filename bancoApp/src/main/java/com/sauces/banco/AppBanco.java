@@ -5,6 +5,8 @@
  */
 package com.sauces.banco;
 
+import com.sauces.banco.modelo.Cuenta;
+import com.sauces.banco.modelo.Banco;
 import java.util.Scanner;
 
 /**

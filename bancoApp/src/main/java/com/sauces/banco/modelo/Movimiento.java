@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sauces.banco;
+package com.sauces.banco.modelo;
 
 import java.time.LocalDate;
 
