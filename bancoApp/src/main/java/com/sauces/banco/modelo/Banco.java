@@ -18,7 +18,7 @@ import java.util.Set;
 public class Banco {
 
     private String nombre;
-    private Set<Cuenta> cuentas;   //en lugar de ser un List que sea un set
+    private List<Cuenta> cuentas;   //en lugar de ser un List que sea un set
 
     /**
      *
@@ -26,7 +26,7 @@ public class Banco {
      */
     public Banco(String nombre) {
         this.nombre = nombre;
-        cuentas = new HashSet<>();
+        cuentas = new ArrayList<>();
     }
 
     /**
@@ -41,9 +41,9 @@ public class Banco {
      *
      * @return
      */
-    public Set<Cuenta> getCuentas() {
-        Set<Cuenta> newHashSet = new HashSet<>(cuentas);
-        return newHashSet;
+    public List<Cuenta> getCuentas() {
+        List<Cuenta> listado = new ArrayList<>(cuentas);
+        return listado;
     }
 
     /**
