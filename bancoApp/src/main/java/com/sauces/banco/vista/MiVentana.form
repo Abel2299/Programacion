@@ -55,11 +55,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Operar con cuenta"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OperarActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="Cancelar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cancelar cuenta"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CancelarActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

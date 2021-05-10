@@ -6,6 +6,7 @@
 package com.sauces.banco.controlador;
 
 import com.sauces.banco.modelo.Banco;
+import com.sauces.banco.modelo.Cuenta;
 import com.sauces.banco.vista.MiVentana;
 
 /**
@@ -40,11 +41,36 @@ public class Controlador {
     }
 
     public void operarConCuenta() {
+        int operacion;
+        String codigo;
+        float cantidad;
+        Cuenta cuenta;
+        
+        codigo=vista.getCodigo();
+        cuenta=modelo.getCuenta(codigo);
+        if(cuenta!=null){
+            operacion=vista.getOperacion();
+            cantidad=vista.getCantidad();
 
+            if(operacion==0){
+                cuenta.ingresar(cantidad);
+            }
+            else{
+                cuenta.reintegrar(cantidad);
+            }
+            vista.actualizarTabla();
+            vista.mostrarMensaje("Operación realizada");
+        }
     }
 
     public void cancelarCuenta() {
-
+        String codigo=vista.getCodigo();
+        if(modelo.cancelarCuenta(codigo)){
+            vista.mostrarMensaje("Cuenta cancelada");
+        }
+        else{
+            vista.mostrarMensaje("No se ha podido cancelar la cuenta");
+        }
     }
 
     public void listarCuentas() {

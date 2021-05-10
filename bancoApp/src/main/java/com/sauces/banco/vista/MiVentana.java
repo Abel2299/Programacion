@@ -170,9 +170,19 @@ public class MiVentana extends javax.swing.JFrame {
         menuBanco.add(AbrirCuenta);
 
         Operar.setText("Operar con cuenta");
+        Operar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OperarActionPerformed(evt);
+            }
+        });
         menuBanco.add(Operar);
 
         Cancelar.setText("Cancelar cuenta");
+        Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarActionPerformed(evt);
+            }
+        });
         menuBanco.add(Cancelar);
 
         jMenuArriba.add(menuBanco);
@@ -228,9 +238,19 @@ public class MiVentana extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_AbrirCuentaActionPerformed
 
-    
-    
-    //private Vista vista;
+    private void OperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OperarActionPerformed
+         
+    }//GEN-LAST:event_OperarActionPerformed
+
+    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
+       controlador.cancelarCuenta();
+        this.CodigoTexto.setText("");
+        this.SaldoText.setText("");
+        this.TitualrTexto.setText("");
+        this.actualizarTabla();
+    }//GEN-LAST:event_CancelarActionPerformed
+
+    //private MiVentana vista;
         
     
     // metodo que permite fijar el controlador
@@ -254,11 +274,11 @@ public class MiVentana extends javax.swing.JFrame {
     }
     
     public int getOperacion(){
-        return 0;
+        return JOptionPane.showOptionDialog(this,"Operacion a realizar", "Operar con cuenta", WIDTH, HEIGHT, null, new String[]{"Ingresar","Reintegrar"}, "xx");
     }
     
     public float getCantidad(){
-        return 0;
+        return Float.parseFloat(JOptionPane.showInputDialog(this, "Introduzca cantidad"));
     }
     
     public String getArchivo(){
@@ -276,7 +296,6 @@ public class MiVentana extends javax.swing.JFrame {
     public void mostrarMensaje(String mensaje){
         JOptionPane.showMessageDialog(this, mensaje);
     }
-    
     
     
     /**
